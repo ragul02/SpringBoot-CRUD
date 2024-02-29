@@ -1,0 +1,38 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=employees;integratedSecurity=true;trustServerCertificate=true
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    integratedSecurity: true
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServer2012Dialect
+      show-sql: 'true'
+      hibernate:
+        ddl-auto: none
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: 'false'
+
+user:
+  role: admin
+
+---
+spring:
+  profiles:
+    active: prod

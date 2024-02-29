@@ -1,7 +1,9 @@
 package com.example.dbconnect.controller;
 
+import com.example.dbconnect.config.ApplicationConfig;
 import com.example.dbconnect.model.Employees;
 import com.example.dbconnect.service.EmployeeService;
+import com.example.dbconnect.service.PropService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @Autowired
+    PropService propService;
+
     // creating a logger
     Logger logger
             = LoggerFactory.getLogger(EmployeeController.class);
@@ -32,7 +37,8 @@ public class EmployeeController {
     public String index() {
         // Logging various log level messages
 //        logger.trace("Log level: TRACE");
-        logger.info("********** Log level INFO: Spring boot application docker Demo**************");
+        //from app.yml print prop > kubernets connect with profiles
+        logger.info("********** Log level INFO: Spring boot application docker Demo************** with property :: " + propService.getUserRole());
         logger.error("********** Log level ERROR: ERRO OCCURED MSG **************");
         logger.warn("********** Log level WARN: WARN  MSG **************");
 
