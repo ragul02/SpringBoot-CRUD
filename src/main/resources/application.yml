@@ -32,7 +32,3 @@ management:
 user:
   role: admin
 
----
-spring:
-  profiles:
-    active: prod
