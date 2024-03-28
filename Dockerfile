@@ -2,6 +2,7 @@ FROM openjdk:17-jdk-alpine AS builder
 ARG PROFILE
 RUN echo "*** Here is Build Env ******: $PROFILE"
 ENV PROFILE_VAR=$PROFILE
+RUN echo "*** Here is PROFILE_VAR Env ******: $PROFILE_VAR ******* ${PROFILE_VAR} ***** ${PROFILE}"
 WORKDIR /app
 COPY target/*.jar app.jar
 COPY src/main/resources/logback.xml /app/logback.xml
