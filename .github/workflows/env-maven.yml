@@ -1,4 +1,4 @@
-name: Deploy Spring Boot App with Docker
+name: Deploy Spring Boot App with Docker - Runtime Env
 
 on:
   push:
