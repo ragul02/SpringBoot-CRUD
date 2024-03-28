@@ -35,6 +35,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image to Docker Hub
-        run: docker push ragul02a/spring-boot-app
+        run: docker push ragul02a/spring-boot-runtime-env
 
-          # build-args: PROFILE=prod,ARG2=test
+        # build-args: PROFILE=prod,ARG2=test
