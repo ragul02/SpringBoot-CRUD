@@ -1,10 +1,10 @@
 FROM openjdk:17-jdk-alpine AS builder
-WORKDIR /app
-COPY target/*.jar app.jar
-COPY src/main/resources/logback.xml /app/logback.xml
 ARG PROFILE
 RUN echo "*** Here is Build Env ******: $PROFILE"
 ENV PROFILE_VAR=$PROFILE
+WORKDIR /app
+COPY target/*.jar app.jar
+COPY src/main/resources/logback.xml /app/logback.xml
 EXPOSE 8080
 ENTRYPOINT ["java","-Dspring.profiles.active=$PROFILE_VAR","-jar","app.jar"]
 LABEL maintainer = "ragul angamuthu"
