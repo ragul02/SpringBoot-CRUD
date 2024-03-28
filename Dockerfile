@@ -6,7 +6,7 @@ WORKDIR /app
 COPY target/*.jar app.jar
 COPY src/main/resources/logback.xml /app/logback.xml
 EXPOSE 8080
-ENTRYPOINT ["java","-Dspring.profiles.active=$PROFILE_VAR","-jar","app.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=$PROFILE","-jar","app.jar"]
 LABEL maintainer = "ragul angamuthu"
 
 # Set the working directory in the container
