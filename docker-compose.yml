@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  springboot-restful-webservices:
+    container_name: springboot-restful-webservices
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        PROFILE: prod
+
+    ports:
+      - "8080:8080"
+#    environment:  # not working
+#      SPRING_PROFILES_ACTIVE: "prod"  #not working
+
+    depends_on:
+      - mssql-db
+    restart: on-failure
+
+  mssql-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql-db
+    ports:
+      - "1433:1433"
+#  database:
+#    image: 'postgres:15.2'
+#    ports:
+#      - '5432'
+
