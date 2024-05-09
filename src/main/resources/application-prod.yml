@@ -3,7 +3,7 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=employees;integratedSecurity=true;trustServerCertificate=true
+    url: jdbc:sqlserver:// 172.18.16.1:1433;databaseName=employees;integratedSecurity=true;trustServerCertificate=true
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     integratedSecurity: true
     jpa:

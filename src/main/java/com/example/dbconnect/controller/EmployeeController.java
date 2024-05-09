@@ -1,8 +1,8 @@
 package com.example.dbconnect.controller;
 
 import com.example.dbconnect.config.ApplicationConfig;
-//import com.example.dbconnect.model.Employees;
-//import com.example.dbconnect.service.EmployeeService;
+import com.example.dbconnect.model.Employees;
+import com.example.dbconnect.service.EmployeeService;
 import com.example.dbconnect.service.PropService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -19,8 +19,8 @@ import java.util.concurrent.ExecutorService;
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
-//    @Autowired
-//    EmployeeService employeeService;
+    @Autowired
+    EmployeeService employeeService;
 
     @Autowired
     PropService propService;
@@ -29,10 +29,12 @@ public class EmployeeController {
     Logger logger
             = LoggerFactory.getLogger(EmployeeController.class);
 
-//    @GetMapping("/employees")
-//    public List<Employees> getAllEmployees() {
-//        return employeeService.getAllEmployees();
-//    }
+    @GetMapping("/employees")
+    public List<Employees> getAllEmployees() {
+        logger.warn("********** Log level getAllEmployees **************");
+
+        return employeeService.getAllEmployees();
+    }
 
     @GetMapping("/")
     public String index() {
@@ -46,11 +48,11 @@ public class EmployeeController {
         return "Greetings from Spring Boot!";
     }
 
-//    @PostMapping("/employees")
-//    public Employees saveEmployee(HttpServletRequest requestHeader, @Valid @RequestBody Employees employee) {
-//        System.out.println("save employye" + employee.getEmailId() + employee.getFirstName() + employee.getLastName());
-//        System.out.println("headers" + requestHeader.getHeader("Content-Type"));
-//        return employeeService.createEmployee(employee);
-//    }
+    @PostMapping("/employees")
+    public Employees saveEmployee(HttpServletRequest requestHeader, @Valid @RequestBody Employees employee) {
+        System.out.println("save employye" + employee.getEmailId() + employee.getFirstName() + employee.getLastName());
+        System.out.println("headers" + requestHeader.getHeader("Content-Type"));
+        return employeeService.createEmployee(employee);
+    }
 
 }
