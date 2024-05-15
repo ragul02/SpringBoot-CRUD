@@ -42,6 +42,7 @@ public class EmployeeController {
         logger.info("********** Log level INFO: Spring boot application docker Demo k8s************** with property :: " + propService.getUserRole());
         logger.error("********** Log level ERROR: ERRO OCCURED MSG **************");
         logger.warn("********** Log level WARN: WARN  MSG **************");
+        logger.info("********** Log level INFO:  test ghcr MSG **************");
 
         return "Greetings from Spring Boot!";
     }
